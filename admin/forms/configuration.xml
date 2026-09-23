@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    
+    <fieldset name="content_settings" label="Treści i Slider" addruleprefix="JFormRule">
+
+        <!-- Kategoria wyróżnionego artykułu -->
+        <field
+            name="featured_article_catid"
+            type="category"
+            extension="com_content"
+            label="COM_YOURCOMPONENT_FIELD_FEATURED_ARTICLE_CATID_LABEL"
+            description="COM_YOURCOMPONENT_FIELD_FEATURED_ARTICLE_CATID_DESC"
+            default=""
+            required="false"
+            multiple="false"
+        >
+            <option value="">JNONE</option>
+        </field>
+
+        <!-- Slider – wiele obrazów za pomocą subform -->
+<field
+    name="slider_images"
+    type="subform"
+    label="COM_THAPI_SLIDER_IMAGES"
+    description="COM_THAPI_SLIDER_IMAGES_DESC"
+    multiple="true"
+    buttons="add,remove,move"
+    layout="joomla.form.field.subform.repeatable-table"
+    min="0"
+    max="20"
+    default="[]"
+>
+    <form>
+        <fieldset name="slide" addfieldpath="/administrator/components/com_thapi/models/fields">
+            <field
+                name="image"
+                type="media"
+                label="COM_THAPI_SLIDE_IMAGE"
+                directory="images"
+                preview="true"
+                preview_width="100"
+                preview_height="100"
+            />
+            <field
+                name="title"
+                type="text"
+                label="COM_THAPI_SLIDE_TITLE"
+                size="50"
+            />
+            <field
+                name="description"
+                type="textarea"
+                label="COM_THAPI_SLIDE_DESCRIPTION"
+                rows="2"
+                cols="50"
+            />
+            <field
+                name="link"
+                type="url"
+                label="COM_THAPI_SLIDE_LINK"
+            />
+            <field
+                name="target"
+                type="list"
+                label="COM_THAPI_SLIDE_TARGET"
+                default="_self"
+            >
+                <option value="_self">COM_THAPI_TARGET_SELF</option>
+                <option value="_blank">COM_THAPI_TARGET_BLANK</option>
+            </field>
+        </fieldset>
+    </form>
+</field>
+            
+    </fieldset>
+
+    <fieldset name="export" label="COM_THAPI_CONFIG_EXPORT">
+        <field
+            name="export_categories"
+            type="text"
+            label="COM_THAPI_CONFIG_EXPORT_CATEGORIES"
+            description="COM_THAPI_CONFIG_EXPORT_CATEGORIES_DESC"
+            default=""
+        />
+        
+        <field
+            name="default_source_id"
+            type="number"
+            label="COM_THAPI_CONFIG_DEFAULT_SOURCE_ID"
+            description="COM_THAPI_CONFIG_DEFAULT_SOURCE_ID_DESC"
+            default="1"
+        />
+        
+        <field
+            name="enable_json_export"
+            type="radio"
+            label="COM_THAPI_CONFIG_ENABLE_JSON_EXPORT"
+            description="COM_THAPI_CONFIG_ENABLE_JSON_EXPORT_DESC"
+            default="1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+    </fieldset>
+    
+    <fieldset name="basic" label="COM_THAPI_CONFIG_BASIC">
+        <field
+            name="id"
+            type="hidden"
+            default="1"
+        />
+        
+        <field
+            name="api_key"
+            type="text"
+            label="COM_THAPI_CONFIG_API_KEY"
+            description="COM_THAPI_CONFIG_API_KEY_DESC"
+            size="40"
+            default=""
+        />
+        
+        <field
+            name="api_secret"
+            type="password"
+            label="COM_THAPI_CONFIG_API_SECRET"
+            description="COM_THAPI_CONFIG_API_SECRET_DESC"
+            size="40"
+            default=""
+        />
+        
+        <field
+            name="enable_api"
+            type="radio"
+            label="COM_THAPI_CONFIG_ENABLE_API"
+            description="COM_THAPI_CONFIG_ENABLE_API_DESC"
+            default="1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        
+        <field
+            name="items_per_page"
+            type="number"
+            label="COM_THAPI_CONFIG_ITEMS_PER_PAGE"
+            description="COM_THAPI_CONFIG_ITEMS_PER_PAGE_DESC"
+            default="20"
+            min="5"
+            max="100"
+        />
+    </fieldset>
+
+
+</form>

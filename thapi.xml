@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="6.0" method="upgrade">
+	<name>COM_THAPI</name>
+	<version>1.0.69</version>
+	<description>ThApi Component</description>
+	<namespace path="src">ThApi\Component\ThApi</namespace>
+
+	<administration>
+		<menu>COM_THAPI_MENU</menu>
+		<submenu>
+			<menu option="com_thapi" view="dashboard">COM_THAPI_MENU_DASHBOARD</menu>
+			<menu option="com_thapi" view="configuration">COM_THAPI_MENU_SETTINGS</menu>
+		</submenu>
+
+		<files folder="admin">
+			<folder>src</folder>
+			<folder>tmpl</folder>
+			<folder>services</folder>
+			<folder>forms</folder>
+			<folder>js</folder>
+			<folder>language</folder>
+			<filename>config.xml</filename>
+		</files>
+
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_thapi.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_thapi.sys.ini</language>
+		</languages>
+	</administration>
+
+	<routes>
+		<route type="application" path="site">
+			<controller>api</controller>
+			<defaults>
+				<format>raw</format>
+			</defaults>
+		</route>
+	</routes>
+
+	<files folder="site">
+        <folder>src</folder>
+    </files>
+
+</extension>
